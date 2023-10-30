@@ -1,0 +1,21 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: O diretório intermediário (x64\Debug\) contém arquivos compartilhados de outro projeto (PacMan.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
+  Fase1.cpp
+  Jogador.cpp
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Jogador.cpp(13,68): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Jogador.cpp(13,53): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Jogador.cpp(13,48): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Jogador.cpp(13,30): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Jogador.cpp(15,28): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Jogador.cpp(16,28): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
+  JogoDaNavinha.cpp
+  Tiro.cpp
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Tiro.cpp(13,70): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Tiro.cpp(13,55): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Tiro.cpp(13,49): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Tiro.cpp(13,30): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Tiro.cpp(33,49): warning C4244: 'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Tiro.cpp(33,27): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+  Tiros.cpp
+C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\PacMan\Tiros.cpp(11,25): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+  Gerando Código...
+  PacMan.vcxproj -> C:\Users\Flavio\Documents\Estudos\Pessoal\ProjetosDeCursos\C++\JogoDaNavinha\x64\Debug\JogoDaNavinha.exe
