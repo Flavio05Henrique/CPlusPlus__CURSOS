@@ -8,7 +8,7 @@ Tiros::Tiros(Scene* scene)
 
 	for (int i = 0; i < tirosList.size(); i++)
 	{
-		Tiro* tiro = new Tiro(i, img);
+		Tiro* tiro = new Tiro(img);
 		tirosList[i] = tiro;
 		scene->Add(tirosList[i], STATIC);
 	}
@@ -19,13 +19,12 @@ Tiros::~Tiros()
 	delete img;
 }
 
-void Tiros::Atirar()
+void Tiros::Atirar(float posicaoJogadorX, float posicaoJogadorY)
 {
 	if (indexTiro == tirosList.size())
 		indexTiro = 0;
-	
-	tirosList[indexTiro]->Stop();
-	tirosList[indexTiro]->Fogo();
+
+	tirosList[indexTiro]->Fogo(posicaoJogadorX, posicaoJogadorY);
 	indexTiro++;
 	
 }

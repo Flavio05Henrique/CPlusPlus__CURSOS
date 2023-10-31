@@ -1,19 +1,18 @@
 #include "Tiro.h"
 
-Tiro::Tiro(float X, Image* img)
+Tiro::Tiro(Image* img)
 {
 	sprite = new Sprite(img);
 
 	velY = 0.0f;
-	stop = true;
 
 	int larguraSprite = sprite->Width() / 2;
 	int alturaSprite = sprite->Height() / 2;
 
 	BBox(new Rect(larguraSprite * -1, alturaSprite * -1, larguraSprite, alturaSprite));
 
-	float positionInitialX = X * sprite->Width() + (10 * X) + 100;
-	float positionInitialY = 500.0f;
+	positionInitialX = -10000.0f;
+	positionInitialY = 10000.0f;
 
 	MoveTo(positionInitialX, positionInitialY);
 }
@@ -25,19 +24,17 @@ Tiro::~Tiro()
 
 void Tiro::Update()
 {
-	if (stop == false) {
-		Translate(0, velY * gameTime);
+	Translate(0, velY * gameTime);
 
-		if (y < -150) {
-			velY = 0.0f;
-			MoveTo(window->Width() / 2, window->Height() * 0.85);
-		}
+	if (y < -150) {
+		velY = 0.0f;
+		MoveTo(positionInitialX, positionInitialY);
 	}
 }
 
 void Tiro::Draw()
 {
-	sprite->Draw(x, y, Layer::UPPER);
+	sprite->Draw(x, y, Layer::LOWER);
 }
 
 void Tiro::OnCollision()
@@ -45,13 +42,11 @@ void Tiro::OnCollision()
 
 }
 
-void Tiro::Fogo()
+void Tiro::Fogo(float posicaoJogadorX, float posicaoJogadorY)
 {
+	MoveTo(posicaoJogadorX, posicaoJogadorY);
 	velY = -350.0f;
 }
 
-void Tiro::Stop()
-{
-	stop = false;
-}
+
 

@@ -10,17 +10,18 @@ class Tiro : public Object
 {
 private:
 	Sprite * sprite = nullptr;
+	float positionInitialX;
+	float positionInitialY;
 	float velY;
-	bool stop;
 
 public:
-	Tiro(float, Image*);
+	Tiro(Image*);
 	~Tiro();
 
 	void Update();
 	void Draw();
 	void OnCollision();
-	void Fogo();
+	void Fogo(float, float);
 	void Stop();
 };
 

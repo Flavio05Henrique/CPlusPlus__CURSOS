@@ -2,13 +2,20 @@
 #include "Sprite.h"
 #include "Scene.h"
 #include "Tiros.h"
+#include "Image.h"
 
 class Fase1 : public Game
 {
 private:
-	Sprite * backg = nullptr;
+	Image* imgBkg = nullptr;
+	Sprite* backg1 = nullptr;
+	Sprite* backg2 = nullptr;
 	Scene* scene = nullptr;
 	Tiros* tiros = nullptr;
+	float backgX;
+	float backgY1;
+	float backgY2;
+	float backgVel;
 
 	bool viewBBox = false;
 	bool keyPress = false; 

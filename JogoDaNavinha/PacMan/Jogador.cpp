@@ -28,18 +28,22 @@ void Jogador::Update()
     
     if (window->KeyDown(VK_LEFT))
     {
+        if (x - sprite->Width() / 2 < 155)
+            MoveTo(155 + sprite->Width() / 2, y);
         Translate(-velX * gameTime, 0);
     }
 
     if (window->KeyDown(VK_RIGHT))
     {
+        if (x + sprite->Width() / 2 > 805)
+            MoveTo(805 - sprite->Width() / 2, y);
         Translate(velX * gameTime, 0);
     }
 
     if (window->KeyDown(VK_UP))
     {   
         if(!keyPress)
-            tirosp->Atirar();
+            tirosp->Atirar(x, y);
         keyPress = true;
         return;
     }

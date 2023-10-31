@@ -19,7 +19,7 @@ public:
 	Tiros(Scene*);
 	~Tiros();
 
-	void Atirar();
+	void Atirar(float, float);
 };
 
 #endif
