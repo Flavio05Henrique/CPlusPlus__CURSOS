@@ -12,6 +12,7 @@ private:
 	Sprite* backg2 = nullptr;
 	Scene* scene = nullptr;
 	Tiros* tiros = nullptr;
+	Tiros* tirosInimigo = nullptr;
 	float backgX;
 	float backgY1;
 	float backgY2;

@@ -15,14 +15,13 @@ private:
 	float velY;
 
 public:
-	Tiro(Image*);
+	Tiro(Image*, int);
 	~Tiro();
 
 	void Update();
 	void Draw();
-	void OnCollision();
-	void Fogo(float, float);
-	void Stop();
+	void OnCollision(Object*);
+	void Fogo(float, float, float);
 };
 
 #endif

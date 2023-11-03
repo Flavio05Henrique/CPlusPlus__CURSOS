@@ -1,9 +1,12 @@
 #include "Jogador.h"
+#include "ObjectTypes.h"
 
 Jogador::Jogador(Tiros* tirosP)
 {
 	sprite = new Sprite("Resources/nave.png");
     tirosp = tirosP;
+
+    type = JOGADOR;
 
     velX = 250.0f;
 
@@ -43,7 +46,7 @@ void Jogador::Update()
     if (window->KeyDown(VK_UP))
     {   
         if(!keyPress)
-            tirosp->Atirar(x, y);
+            tirosp->Atirar(x, y, -350.0f);
         keyPress = true;
         return;
     }

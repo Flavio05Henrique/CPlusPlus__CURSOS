@@ -1,12 +1,15 @@
 #include "Engine.h"
 #include "Fase1.h"
 #include "Jogador.h"
+#include "Inimigo.h";
 #include "Image.h"
+#include "ObjectTypes.h"
 
 void Fase1::Init()
 {
 	scene = new Scene();
-	tiros = new Tiros(scene);
+	tiros = new Tiros(scene, new Image("Resources/foguete.png"),TIROJOGADOR);
+	tirosInimigo = new Tiros(scene, new Image("Resources/TiroNaveAlien.png"), TIROINIMIGO);
 
 	imgBkg = new Image("Resources/Espaco.jpg");
 
@@ -20,6 +23,9 @@ void Fase1::Init()
 
 	Jogador* jogador = new Jogador(tiros);
 	scene->Add(jogador, MOVING);
+
+	Inimigo* inimigo = new Inimigo(tirosInimigo);
+	scene->Add(inimigo, MOVING);
 
 }
 
@@ -36,6 +42,7 @@ void Fase1::Update()
 	}
 
 	scene->Update();
+	scene->CollisionDetection();
 
 	if (backgY1 - backg1->Height() / 2 > window->Height())
 		backgY1 = backgY2 - backg2->Height();

@@ -1,8 +1,12 @@
 #include "Tiro.h"
+#include "ObjectTypes.h"
+#include "Inimigo.h"
 
-Tiro::Tiro(Image* img)
+Tiro::Tiro(Image* img, int tipo)
 {
 	sprite = new Sprite(img);
+
+	type = tipo;
 
 	velY = 0.0f;
 
@@ -26,7 +30,7 @@ void Tiro::Update()
 {
 	Translate(0, velY * gameTime);
 
-	if (y < -150) {
+	if (y < -150 || y > window->Height()) {
 		velY = 0.0f;
 		MoveTo(positionInitialX, positionInitialY);
 	}
@@ -37,15 +41,25 @@ void Tiro::Draw()
 	sprite->Draw(x, y, Layer::LOWER);
 }
 
-void Tiro::OnCollision()
+void Tiro::OnCollision(Object* obj)
 {
+	if (obj->Type() == INIMIGO && type == TIROJOGADOR)
+	{
+		velY = 0.0f;
+		MoveTo(positionInitialX, positionInitialY);
+	}
 
+	if (obj->Type() == JOGADOR && type == TIROINIMIGO)
+	{
+		velY = 0.0f;
+		MoveTo(positionInitialX, positionInitialY);
+	}
 }
 
-void Tiro::Fogo(float posicaoJogadorX, float posicaoJogadorY)
+void Tiro::Fogo(float posicaoJogadorX, float posicaoJogadorY, float direcaoYDoTiro)
 {
 	MoveTo(posicaoJogadorX, posicaoJogadorY);
-	velY = -350.0f;
+	velY = direcaoYDoTiro;
 }
 
 

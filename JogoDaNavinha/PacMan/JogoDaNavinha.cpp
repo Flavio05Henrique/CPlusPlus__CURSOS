@@ -29,7 +29,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     engine->window->Icon(IDI_ICON);
 
     // configura dispositivo gráfico
-    engine->graphics->VSync(false);
+    //engine->graphics->VSync(true);
     
     // inicia o jogo
     int status = engine->Start(new Fase1());

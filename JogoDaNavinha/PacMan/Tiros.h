@@ -16,10 +16,10 @@ private:
 	int indexTiro;
 
 public:
-	Tiros(Scene*);
+	Tiros(Scene*, Image*, int);
 	~Tiros();
 
-	void Atirar(float, float);
+	void Atirar(float, float, float);
 };
 
 #endif
