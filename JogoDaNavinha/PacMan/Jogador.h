@@ -13,14 +13,16 @@ private:
 	Tiros* tirosp = nullptr;
 	float velX;
 	bool keyPress = false;
-
+	int vida;
+	bool morreu = false;
 public:
 	Jogador(Tiros*);
 	~Jogador();
 
 	void Update();
 	void Draw();
-	void OnCollision();
+	void OnCollision(Object*);
+	bool jogadorEstaMorto();
 };
 
 #endif

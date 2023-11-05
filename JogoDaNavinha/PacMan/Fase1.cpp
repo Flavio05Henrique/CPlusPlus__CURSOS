@@ -1,9 +1,9 @@
 #include "Engine.h"
 #include "Fase1.h"
-#include "Jogador.h"
 #include "Inimigo.h";
 #include "Image.h"
 #include "ObjectTypes.h"
+#include "HomeJDN.h"
 
 void Fase1::Init()
 {
@@ -16,17 +16,24 @@ void Fase1::Init()
 	backg1 = new Sprite(imgBkg);
 	backg2 = new Sprite(imgBkg);
 
+	gameOver = new Sprite("Resources/GamerOverJogoDaNavinha.png");
+
 	backgVel = 150.0f;
 	backgX = window->Width() / 2;
 	backgY1 = window->Height() - backg1->Height() / 2;
 	backgY2 = backgY1 - backg1->Height();
 
-	Jogador* jogador = new Jogador(tiros);
+	jogador = new Jogador(tiros);
 	scene->Add(jogador, MOVING);
 
-	Inimigo* inimigo = new Inimigo(tirosInimigo);
+	Inimigo* inimigo = new Inimigo(tirosInimigo, 100.0f);
 	scene->Add(inimigo, MOVING);
 
+	Inimigo* inimigo2 = new Inimigo(tirosInimigo, 200.0f);
+	scene->Add(inimigo2, MOVING);
+
+	Inimigo* inimigo3 = new Inimigo(tirosInimigo, 300.0f);
+	scene->Add(inimigo3, MOVING);
 }
 
 void Fase1::Update()
@@ -41,8 +48,12 @@ void Fase1::Update()
 		keyPress = false;
 	}
 
-	scene->Update();
-	scene->CollisionDetection();
+	if (!jogador->jogadorEstaMorto())
+	{
+		scene->Update();
+		scene->CollisionDetection();
+	}
+
 
 	if (backgY1 - backg1->Height() / 2 > window->Height())
 		backgY1 = backgY2 - backg2->Height();
@@ -51,6 +62,22 @@ void Fase1::Update()
 
 	backgY1 += backgVel * gameTime;
 	backgY2 += backgVel * gameTime;
+
+	if (jogador->jogadorEstaMorto() && !keyPress && window->KeyDown(VK_RETURN))
+	{
+		keyPress = true;
+		Engine::Next<Fase1>();
+	}
+	else if (window->KeyUp(VK_RETURN))
+	{
+		keyPress = false;
+	}
+
+	if (!keyPress && window->KeyDown(VK_ESCAPE))
+	{
+		keyPress = true;
+		Engine::Next<HomeJDN>();
+	}
 }
 
 void Fase1::Draw() 
@@ -62,6 +89,9 @@ void Fase1::Draw()
 	{
 		scene->DrawBBox();
 	}
+	if (jogador->jogadorEstaMorto()) {
+		gameOver->Draw(window->Width() / 2, window->Height() / 2, Layer::UPPER);
+	}
 }
 
 void Fase1::Finalize()
@@ -69,6 +99,7 @@ void Fase1::Finalize()
 	delete scene;
 	delete tiros;
 	delete imgBkg;
+	delete gameOver;
 }
 
  

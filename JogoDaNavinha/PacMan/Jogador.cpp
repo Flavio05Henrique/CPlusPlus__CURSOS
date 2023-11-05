@@ -7,8 +7,8 @@ Jogador::Jogador(Tiros* tirosP)
     tirosp = tirosP;
 
     type = JOGADOR;
-
     velX = 250.0f;
+    vida = 1;
 
     int larguraSprite = sprite->Width() / 2;
     int alturaSprite = sprite->Height() / 2;
@@ -63,8 +63,21 @@ void Jogador::Draw()
 	sprite->Draw(x, y, Layer::MIDDLE);
 }
 
-void Jogador::OnCollision()
+void Jogador::OnCollision(Object* obj)
 {
+    if(vida > 0 &&  obj->Type() == TIROINIMIGO)
+    {
+        vida--;
+    }
 
+    if (vida == 0)
+    {
+        morreu = true;
+    }
+}
+
+bool Jogador::jogadorEstaMorto()
+{
+    return morreu;
 }
 

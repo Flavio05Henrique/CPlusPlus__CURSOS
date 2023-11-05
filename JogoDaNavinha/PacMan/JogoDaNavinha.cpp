@@ -11,7 +11,7 @@
 
 #include "Engine.h"
 #include "Resources.h"
-#include "Fase1.h"
+#include "HomeJDN.h"
 
 // ------------------------------------------------------------------------------
 //                                  WinMain                                      
@@ -32,7 +32,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     //engine->graphics->VSync(true);
     
     // inicia o jogo
-    int status = engine->Start(new Fase1());
+    int status = engine->Start(new HomeJDN());
 
     delete engine;
     return status;

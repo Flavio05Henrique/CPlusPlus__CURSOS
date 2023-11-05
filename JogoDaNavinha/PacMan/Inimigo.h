@@ -18,10 +18,17 @@ private:
 	bool imune;
 	float esperaI;
 	float esperaV;
+	bool atirol = false;
 	uint vida;
+	float altura;
+
+	void EntraInimigo();
+	void MovimentaInimigo();
+	void ParaAtiraVolta();
+	int DecideDirecao();
 
 public:
-	Inimigo(Tiros*);
+	Inimigo(Tiros*, float);
 	~Inimigo();
 
 	int spriteW();

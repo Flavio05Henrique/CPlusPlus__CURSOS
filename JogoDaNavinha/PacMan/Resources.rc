@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------
 
 IDI_ICON        ICON        "Resources\\Icon.ico"
-IDC_CURSOR      CURSOR      "Resources\\Cursor.cur"
+//IDC_CURSOR      CURSOR      "Resources\\Cursor.cur"
 
 // ---------------------------------------------------------------------
 
